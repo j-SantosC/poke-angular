@@ -1,15 +1,18 @@
-<div class="text-center">
+<div class="text-center mt-10">
   <p class="text-2xl text-white">Poke Project 2022</p>
   <p class="text-xs text-white">Created by Jaco Santos</p>
 </div>
 
 
-<div *ngIf="!pokeToFind" class="mt-10 flex justify-center">
-  <div *ngFor="let pokemon of initialPokemon" class="mx-3">
-    <app-card
-      [img]="pokemon.sprites.front_default"
-      [header]="pokemon.name | titlecase"
-      [number]="pokemon.order"
-    ></app-card>
+<div *ngIf="!pokeToFind" class=" container mt-10 flex justify-center">
+    <div  *ngFor="let pokemon of initialPokemon" class="card mx-3">
+      <div class="content">
+        <div class="imgBx">
+          <img [src]="pokemon.sprites.front_default">
+        </div>
+        <div class="contentBx">
+          <h3>{{pokemon.name}}<br><span>{{pokemon.order}}</span></h3>
+        </div>
+      </div>
+    </div>
   </div>
-</div>

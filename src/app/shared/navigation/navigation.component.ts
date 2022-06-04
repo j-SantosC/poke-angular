@@ -17,19 +17,12 @@ export class NavigationComponent implements OnInit {
   ngOnInit() {
       this.items = [
           {
-              label: 'Home', icon: 'pi pi-fw pi-video', routerLink: 'home'
+              label: 'Home', routerLink: 'home'
           },
           {
-              label: 'Search', icon: 'pi pi-fw pi-users', routerLink: 'search'
+              label: 'Game', routerLink: 'search'
           },
-          {
-              label: 'Events', icon: 'pi pi-fw pi-calendar',
-
-          },
-          {
-              label: 'Settings', icon: 'pi pi-fw pi-cog',
-             
-          }
+          
       ]
   }
 }
