@@ -10,6 +10,7 @@ export class SearchComponent implements OnInit {
 
   pokeToFind;
   inputValue: string;
+  error: any;
 
   constructor(private poke: PokeService) {}
 
@@ -19,6 +20,8 @@ export class SearchComponent implements OnInit {
   clickHandle() {
     this.poke.getPokemon(this.inputValue).subscribe((data) => {
       this.pokeToFind = data
+    }, (err)=>{
+      this.error = "Este pokemon no existe joputa, has perdido!"
     });
   }
   changeInputHandle(ev) {

@@ -9,10 +9,13 @@ import { InputTextModule } from 'primeng/inputtext';
 import { FormsModule } from '@angular/forms';
 import { ButtonComponent } from './button/button.component';
 import { ButtonModule } from 'primeng/button';
+import { AlertComponent } from './alert/alert.component';
+import { MessageModule } from 'primeng/message';
+import { MessagesModule } from 'primeng/messages';
 
 @NgModule({
-  declarations: [NavigationComponent, CardComponent, InputComponent, ButtonComponent],
-  imports: [CommonModule, MegaMenuModule, CardModule, InputTextModule, FormsModule, ButtonModule],
-  exports:[NavigationComponent, CardComponent, InputComponent, ButtonComponent], 
+  declarations: [NavigationComponent, CardComponent, InputComponent, ButtonComponent, AlertComponent],
+  imports: [CommonModule, MegaMenuModule, CardModule, InputTextModule, FormsModule, ButtonModule, MessageModule, MessagesModule],
+  exports:[NavigationComponent, CardComponent, InputComponent, ButtonComponent, AlertComponent], 
 })
 export class SharedModule {}
