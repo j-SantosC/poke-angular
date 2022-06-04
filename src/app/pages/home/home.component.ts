@@ -7,14 +7,23 @@ import { PokeService } from 'src/app/services/poke.service';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-  pokemon: any = {};
+  initialPokemon: any[] = [];
   constructor(private poke: PokeService) {}
 
   ngOnInit(): void {
-    this.poke.getDitto().subscribe((data: any) => (this.pokemon = {
-      img: data.sprites.front_default,
-      name: data.name,
-      order:data.order
-    }));
+    this.pushInitialPoke('bulbasaur');
+    this.pushInitialPoke('charmander');
+    this.pushInitialPoke('squirtle');
+    console.log(this.initialPokemon);
+  }
+  pushInitialPoke(poke: string) {
+    this.poke.getPokemon(poke).subscribe((data: any) => {
+      this.initialPokemon.push(data);
+    });
+    
   }
 }
+
+// img: data.sprites.front_default,
+// name: data.name,
+// order: data.order
