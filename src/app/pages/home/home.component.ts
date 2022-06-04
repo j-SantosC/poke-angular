@@ -8,6 +8,9 @@ import { PokeService } from 'src/app/services/poke.service';
 })
 export class HomeComponent implements OnInit {
   initialPokemon: any[] = [];
+  inputValue: string;
+  pokeToFind;
+
   constructor(private poke: PokeService) {}
 
   ngOnInit(): void {
@@ -20,7 +23,14 @@ export class HomeComponent implements OnInit {
     this.poke.getPokemon(poke).subscribe((data: any) => {
       this.initialPokemon.push(data);
     });
-    
+  }
+  clickHandle() {
+    this.poke.getPokemon(this.inputValue).subscribe((data) => {
+      this.pokeToFind = data
+    });
+  }
+  changeInputHandle(ev) {
+    this.inputValue = ev;
   }
 }
 
