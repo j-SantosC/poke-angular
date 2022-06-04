@@ -1,4 +1,8 @@
-<div class="flex justify-center mt-20 w-full">
+<div class="search-wrapper">
+  <p class="text-xl text-white text-center">
+    Recuerdas el nombre de algún jodido pokemon?
+  </p>
+  <div class="flex justify-center mt-5 w-full">
     <app-input
       [value1]="inputValue"
       (value1Change)="changeInputHandle($event)"
@@ -7,12 +11,14 @@
       <app-button (onClickEv)="clickHandle()"></app-button>
     </div>
   </div>
-<div class="flex justify-center mt-10">
-    <div *ngIf="pokeToFind" class="">
+  <div class="flex justify-center mt-5">
+    <div *ngIf="pokeToFind && !error" class="">
       <app-card
         [img]="pokeToFind?.sprites.front_default"
         [header]="pokeToFind?.name | titlecase"
         [number]="pokeToFind?.order"
       ></app-card>
     </div>
+    <app-alert *ngIf="error" [message]="this.error"></app-alert>
   </div>
+</div>
