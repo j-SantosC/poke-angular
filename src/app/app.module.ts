@@ -12,11 +12,13 @@ import { CardComponent } from './shared/card/card.component';
 import { CardModule } from 'primeng/card';
 import { SharedModule } from './shared/shared.module';
 import { FormsModule } from '@angular/forms';
+import { SearchComponent } from './pages/search/search.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
+    SearchComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, SharedModule],
   providers: [],
