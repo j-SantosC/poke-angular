@@ -10,21 +10,16 @@ import { NavigationComponent } from './shared/navigation/navigation.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CardComponent } from './shared/card/card.component';
 import { CardModule } from 'primeng/card';
+import { SharedModule } from './shared/shared.module';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    NavigationComponent,
-    CardComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    MegaMenuModule,
-    CardModule,
-    HttpClientModule  ],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, SharedModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

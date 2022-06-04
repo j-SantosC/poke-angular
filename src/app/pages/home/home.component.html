@@ -2,8 +2,25 @@
   <p class="text-2xl">Poke Project 2022</p>
   <p class="text-xs">Created by Jaco Santos</p>
 </div>
-
-<div class="mt-10 flex justify-center">
+<div class="flex justify-center mt-20 w-full">
+  <app-input
+    [value1]="inputValue"
+    (value1Change)="changeInputHandle($event)"
+  ></app-input>
+  <div class="ml-3">
+    <app-button (onClickEv)="clickHandle()"></app-button>
+  </div>
+</div>
+<div class="flex justify-center mt-10">
+  <div *ngIf="pokeToFind" class="">
+    <app-card
+      [img]="pokeToFind?.sprites.front_default"
+      [header]="pokeToFind?.name | titlecase"
+      [number]="pokeToFind?.order"
+    ></app-card>
+  </div>
+</div>
+<div *ngIf="!pokeToFind" class="mt-10 flex justify-center">
   <div *ngFor="let pokemon of initialPokemon" class="mx-3">
     <app-card
       [img]="pokemon.sprites.front_default"
