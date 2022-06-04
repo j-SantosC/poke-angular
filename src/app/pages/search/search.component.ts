@@ -11,6 +11,8 @@ export class SearchComponent implements OnInit {
   pokeToFind;
   inputValue: string;
   error: any;
+  successArr: any[] = []
+  i:number;
 
   constructor(private poke: PokeService) {}
 
@@ -19,8 +21,14 @@ export class SearchComponent implements OnInit {
   }
   clickHandle() {
     this.poke.getPokemon(this.inputValue).subscribe((data) => {
-      this.pokeToFind = data
-    }, (err)=>{
+      this.pokeToFind = data;
+      if(!this.successArr.includes(data.name)){
+
+        this.successArr.push(data.name)
+      }else{
+        this.error = "Este pokemon ya esta en la lista amigo! Has perdido"
+      }
+    }, ()=>{
       this.error = "Este pokemon no existe joputa, has perdido!"
     });
   }
