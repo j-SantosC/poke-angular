@@ -8,7 +8,8 @@ export class PokeService {
 
   constructor(private http: HttpClient) { }
 
-  getDitto(){
-    return this.http.get('https://pokeapi.co/api/v2/pokemon/pikachu')
+  getPokemon(poke :string) : any{
+    return this.http.get('https://pokeapi.co/api/v2/pokemon/' + poke)
   }
+
 }
