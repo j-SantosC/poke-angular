@@ -12,24 +12,32 @@
     </div>
   </div>
   <div class="flex my-5 justify-center text-center">
-    <p class="text-xl text-white ">
-        Llevas <span class="text-green-500">{{ successArr.length }}</span> acertados mamon
-      </p>
+    <p class="text-xl text-white">
+      Llevas
+      <span class="text-green-500">{{ successArr.length }}</span> acertados
+      mamon
+    </p>
+  </div>
+  <div  *ngIf="loading" class="flex justify-center">
+      <app-spinner></app-spinner>
   </div>
   <div class="flex justify-between mt-16">
-    <div *ngIf="pokeToFind && !error" class="">
+    
+    <div *ngIf="pokeToFind && !error && !loading" class="">
       <app-card
         [img]="pokeToFind?.sprites.front_default"
-        [header]="pokeToFind?.name | titlecase"
+        [name]="pokeToFind?.name | titlecase"
         [number]="pokeToFind?.order"
       ></app-card>
     </div>
-    <div *ngIf="successArr.length > 0 && !error" class="successList text-white ml-5">
-   
+    <div
+      *ngIf="successArr.length > 0 && !error && !loading"
+      class="successList text-white ml-5"
+    >
       <ul>
-        <li *ngFor="let item of successArr">{{ item | titlecase}}</li>
+        <li *ngFor="let item of successArr">{{ item | titlecase }}</li>
       </ul>
     </div>
   </div>
-  <app-alert *ngIf="error" [message]="this.error"></app-alert>
+  <app-alert *ngIf="error && !loading" [message]="this.error"></app-alert>
 </div>

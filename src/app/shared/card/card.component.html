@@ -1,6 +1,15 @@
-<p-card [header]="header" [style]="{'width': '15rem', 'margin-bottom': '2em'}">
-    <ng-template pTemplate="header">
-        <img alt="Card" [src]="img">
-    </ng-template>
-  <p>Número {{number}}</p>
-</p-card>
+<div class="container">
+  <div class="card">
+    <div class="imgBx">
+      <img [src]="img">
+    </div>
+    <div class="contentBx">
+      <h2>{{name | titlecase}}</h2>
+      <div class="color mb-8 my-1">
+        <h3>Number {{number}}</h3>
+     
+      </div>
+      <a class="cursor-pointer "(click)="onCatch(number)">Catch</a>
+    </div>
+  </div>
+</div>

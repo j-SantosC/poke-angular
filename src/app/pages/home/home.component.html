@@ -6,13 +6,6 @@
 
 <div *ngIf="!pokeToFind" class=" container mt-10 flex justify-center">
     <div  *ngFor="let pokemon of initialPokemon" class="card mx-3">
-      <div class="content">
-        <div class="imgBx">
-          <img [src]="pokemon.sprites.front_default">
-        </div>
-        <div class="contentBx">
-          <h3>{{pokemon.name}}<br><span>{{pokemon.order}}</span></h3>
-        </div>
-      </div>
+     <app-card [img]="pokemon.sprites.front_default" (catchEv)="onCatch($event) "[name]="pokemon.name" [number]="pokemon.order"></app-card>
     </div>
   </div>

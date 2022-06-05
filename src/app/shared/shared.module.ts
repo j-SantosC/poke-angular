@@ -12,10 +12,11 @@ import { ButtonModule } from 'primeng/button';
 import { AlertComponent } from './alert/alert.component';
 import { MessageModule } from 'primeng/message';
 import { MessagesModule } from 'primeng/messages';
+import { SpinnerComponent } from './spinner/spinner.component';
 
 @NgModule({
-  declarations: [NavigationComponent, CardComponent, InputComponent, ButtonComponent, AlertComponent],
+  declarations: [NavigationComponent, CardComponent, InputComponent, ButtonComponent, AlertComponent, SpinnerComponent],
   imports: [CommonModule, MegaMenuModule, CardModule, InputTextModule, FormsModule, ButtonModule, MessageModule, MessagesModule],
-  exports:[NavigationComponent, CardComponent, InputComponent, ButtonComponent, AlertComponent], 
+  exports:[NavigationComponent, CardComponent, InputComponent, ButtonComponent, AlertComponent,SpinnerComponent], 
 })
 export class SharedModule {}

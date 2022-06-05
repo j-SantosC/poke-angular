@@ -13,6 +13,7 @@ export class SearchComponent implements OnInit {
   error: any;
   successArr: any[] = []
   i:number;
+  loading: boolean;
 
   constructor(private poke: PokeService) {}
 
@@ -20,15 +21,19 @@ export class SearchComponent implements OnInit {
 
   }
   clickHandle() {
+    this.loading= true;
     this.poke.getPokemon(this.inputValue).subscribe((data) => {
+      this.loading = false;
       this.pokeToFind = data;
       if(!this.successArr.includes(data.name)){
-
+        this.loading = false;
         this.successArr.push(data.name)
       }else{
+        this.loading = false;
         this.error = "Este pokemon ya esta en la lista amigo! Has perdido"
       }
     }, ()=>{
+      this.loading = false;
       this.error = "Este pokemon no existe joputa, has perdido!"
     });
   }

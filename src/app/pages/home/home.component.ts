@@ -26,11 +26,20 @@ export class HomeComponent implements OnInit {
   }
   clickHandle() {
     this.poke.getPokemon(this.inputValue).subscribe((data) => {
-      this.pokeToFind = data
+      this.pokeToFind = data;
     });
   }
   changeInputHandle(ev) {
     this.inputValue = ev;
+  }
+  onCatch(num) {
+    console.log(num);
+    console.log(this.initialPokemon);
+
+    this.initialPokemon = this.initialPokemon.filter((pokemon) => {
+     return pokemon.order == num;
+    });
+    this.initialPokemon
   }
 }
 

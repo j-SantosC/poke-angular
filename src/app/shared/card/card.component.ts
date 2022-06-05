@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import {CardModule} from 'primeng/card';
 
 @Component({
@@ -9,11 +9,15 @@ import {CardModule} from 'primeng/card';
 export class CardComponent implements OnInit {
 
   @Input() img: string = '';
-  @Input() header: string = '';
+  @Input() name: string = '';
   @Input() number: string = '';
+  @Output() catchEv = new EventEmitter;
   constructor() { }
 
   ngOnInit(): void {
+  }
+  onCatch(ev){
+    this.catchEv.emit(ev)
   }
 
 }
