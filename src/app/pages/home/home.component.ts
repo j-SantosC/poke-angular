@@ -16,7 +16,6 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.pushInitialPoke('bulbasaur');
     this.pushInitialPoke('charmander');
-
     this.pushInitialPoke('pikachu');
 
     console.log(this.initialPokemon);

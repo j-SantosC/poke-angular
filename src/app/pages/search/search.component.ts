@@ -34,7 +34,7 @@ export class SearchComponent implements OnInit {
       }
     }, ()=>{
       this.loading = false;
-      this.error = "Este pokemon no existe joputa, has perdido!"
+      this.error = "Ese Pokemon no existe, has perdido!"
     });
   }
   changeInputHandle(ev) {
