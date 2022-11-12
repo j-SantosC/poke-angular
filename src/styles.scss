@@ -1,5 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
-@import '~primeicons/primeicons.css';
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+@import "~primeicons/primeicons.css";
+
+body {
+  background-color: #b43d3d;
+}

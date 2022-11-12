@@ -1,0 +1,17 @@
+.success-list {
+  border: 2px solid white;
+  padding: 2rem;
+  border-radius: 5px;
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  font-size: 32px;
+}
+.subtitle {
+  font-size: 24px;
+  margin-bottom: 5rem;
+}

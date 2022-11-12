@@ -1,7 +1,6 @@
-<div class="search-wrapper mt-16">
-  <p class="text-xl text-white text-center">
-    Recuerdas el nombre de algún Pokemon?
-  </p>
+<div class="search-wrapper text-white text-center mt-16">
+  <h1 class="title">Poke Angular</h1>
+  <h3 class="subtitle">De cuantos te acuerdas?</h3>
   <div class="flex justify-center mt-5 w-full">
     <app-input
       [value1]="inputValue"
@@ -17,11 +16,10 @@
       <span class="text-green-500">{{ successArr.length }}</span> acertados!
     </p>
   </div>
-  <div  *ngIf="loading" class="flex justify-center">
-      <app-spinner></app-spinner>
+  <div *ngIf="loading" class="flex justify-center">
+    <app-spinner></app-spinner>
   </div>
-  <div class="flex justify-between mt-16">
-    
+  <div class="flex justify-evenly  mt-16">
     <div *ngIf="pokeToFind && !error && !loading" class="">
       <app-card
         [img]="pokeToFind?.sprites.front_default"
@@ -31,7 +29,7 @@
     </div>
     <div
       *ngIf="successArr.length > 0 && !error && !loading"
-      class="successList text-white ml-5"
+      class="success-list text-white ml-5"
     >
       <ul>
         <li *ngFor="let item of successArr">{{ item | titlecase }}</li>
