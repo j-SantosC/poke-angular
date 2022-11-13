@@ -1,5 +1,4 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { InputTextModule } from 'primeng/inputtext';
 
 @Component({
   selector: 'app-input',
@@ -8,11 +7,12 @@ import { InputTextModule } from 'primeng/inputtext';
 })
 export class InputComponent implements OnInit {
   @Input() value1: string;
+  @Input() disabled = false;
   @Output() value1Change = new EventEmitter();
 
-  constructor() {}
+  constructor() { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   valueChange(ev) {
     this.value1Change.emit(ev);

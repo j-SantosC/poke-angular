@@ -25,10 +25,14 @@ export class SearchComponent implements OnInit {
     this.poke.getPokemon(this.inputValue).subscribe((data) => {
       this.loading = false;
       this.pokeToFind = data;
-      if (!this.successArr.includes(data.name)) {
+      if (this.inputValue && !this.successArr.includes(data.name)) {
         this.loading = false;
         this.successArr.push(data.name)
-      } else {
+        this.inputValue = '';
+      } else if (this.inputValue === '') {
+        this.error = 'Escribe algo, no recuerdas ninguno?'
+      }
+      else {
         this.loading = false;
         this.error = "Este pokemon ya esta en la lista amigo! Has perdido"
       }
