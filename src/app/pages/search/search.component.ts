@@ -12,32 +12,38 @@ export class SearchComponent implements OnInit {
   inputValue: string;
   error: any;
   successArr: any[] = []
-  i:number;
+  i: number;
   loading: boolean;
 
-  constructor(private poke: PokeService) {}
+  constructor(private poke: PokeService) { }
 
   ngOnInit(): void {
 
   }
   clickHandle() {
-    this.loading= true;
+    this.loading = true;
     this.poke.getPokemon(this.inputValue).subscribe((data) => {
       this.loading = false;
       this.pokeToFind = data;
-      if(!this.successArr.includes(data.name)){
+      if (!this.successArr.includes(data.name)) {
         this.loading = false;
         this.successArr.push(data.name)
-      }else{
+      } else {
         this.loading = false;
         this.error = "Este pokemon ya esta en la lista amigo! Has perdido"
       }
-    }, ()=>{
+    }, () => {
       this.loading = false;
       this.error = "Ese Pokemon no existe, has perdido!"
     });
   }
   changeInputHandle(ev) {
     this.inputValue = ev;
+  }
+  onRestart() {
+    this.pokeToFind = null
+    this.successArr = []
+    this.error = null;
+    this.inputValue = '';
   }
 }

@@ -5,6 +5,7 @@
     <app-input
       [value1]="inputValue"
       (value1Change)="changeInputHandle($event)"
+      (keyup.enter)="clickHandle()"
     ></app-input>
     <div class="ml-3">
       <app-button (onClickEv)="clickHandle()"></app-button>
@@ -19,7 +20,7 @@
   <div *ngIf="loading" class="flex justify-center">
     <app-spinner></app-spinner>
   </div>
-  <div class="flex justify-evenly  mt-16">
+  <div class="flex  w-3/4 justify-center mt-16">
     <div *ngIf="pokeToFind && !error && !loading" class="">
       <app-card
         [img]="pokeToFind?.sprites.front_default"
@@ -37,4 +38,8 @@
     </div>
   </div>
   <app-alert *ngIf="error && !loading" [message]="this.error"></app-alert>
+  <div  *ngIf="error && !loading" class="restart-option ">
+    <div class="text my-3">Quieres volver a jugar?</div>
+    <app-button (onClickEv)="onRestart()"></app-button>
+  </div>
 </div>
