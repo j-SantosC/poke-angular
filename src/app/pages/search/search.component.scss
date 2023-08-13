@@ -1,23 +1,26 @@
 .search-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  .success-list {
-    background-color: white;
-    color: black;
-    padding: 2rem;
-    border-radius: 5px;
-    width: 200px;
     display: flex;
     flex-direction: column;
     align-items: center;
-  }
+    .success-list {
+        background-color: white;
+        color: black;
+        padding: 2rem;
+        border-radius: 5px;
+        width: 200px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        li {
+            cursor: pointer;
+        }
+    }
 
-  .title {
-    font-size: 32px;
-  }
-  .subtitle {
-    font-size: 24px;
-    margin-bottom: 5rem;
-  }
+    .title {
+        font-size: 32px;
+    }
+    .subtitle {
+        font-size: 24px;
+        margin-bottom: 5rem;
+    }
 }
