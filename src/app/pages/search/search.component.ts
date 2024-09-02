@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LocalStorageService } from 'src/app/services/local-storage.service';
 import { PokeService } from 'src/app/services/poke.service';
 
 @Component({
@@ -14,9 +15,16 @@ export class SearchComponent implements OnInit {
     i: number;
     loading: boolean;
 
-    constructor(private poke: PokeService) {}
+    record: any;
 
-    ngOnInit(): void {}
+    constructor(
+        private poke: PokeService,
+        private storage: LocalStorageService
+    ) {}
+
+    ngOnInit(): void {
+        this.record = this.storage.getItem('record') ?? 0;
+    }
     clickHandle() {
         this.loading = true;
         this.poke.getPokemon(this.inputValue).subscribe(
@@ -47,6 +55,8 @@ export class SearchComponent implements OnInit {
             () => {
                 this.loading = false;
                 this.error = 'Ese Pokemon no existe, has perdido!';
+                this.record = this.successArr.length;
+                this.storage.setItem('record', this.record);
             }
         );
     }
