@@ -35,7 +35,10 @@ export class SearchComponent implements OnInit {
                     name: data?.name,
                     order: data?.order,
                 };
-                if (this.inputValue && !this.successArr.includes(data.name)) {
+                if (
+                    this.inputValue &&
+                    !this.successArr.some((item) => item.name === data.name)
+                ) {
                     this.loading = false;
                     this.poke.pokeArr.push({
                         img: data?.sprites?.front_default,
